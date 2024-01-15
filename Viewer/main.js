@@ -135,7 +135,7 @@ function Subgrid() {
             tile.setAttribute("tile_id", next_unique_tile_id);
             next_unique_tile_id += 1;
             // Background image
-            tile.style.backgroundImage = `url(track_images/${grid_ids[i][j]}.svg)`;
+            tile.style.backgroundImage = `url(Viewer/track_images/${grid_ids[i][j]}.svg)`;
             // Append to row
             tilter.appendChild(tile);
             row.appendChild(tilter);
@@ -418,18 +418,18 @@ function assignTileToPlayer(tile, position) {
     var players = document.getElementsByTagName("audio");
     var resumeTime = 0;
     for (var i = 0; i < players.length; i++) {
-        if (players[i].getAttribute("src") == `track_clips/${track_id}.mp3`) {
+        if (players[i].getAttribute("src") == `Viewer/track_clips/${track_id}.mp3`) {
             resumeTime = players[i].currentTime;
         }
     }
 
     // Check if this player is playing the same track
-    if (player.getAttribute("src") == `track_clips/${track_id}.mp3`) {
+    if (player.getAttribute("src") == `Viewer/track_clips/${track_id}.mp3`) {
         return;
     }
     else {
         player.pause();
-        player.setAttribute("src", `track_clips/${track_id}.mp3`);
+        player.setAttribute("src", `Viewer/track_clips/${track_id}.mp3`);
         player.load();
         player.currentTime = resumeTime;
         player.play();
