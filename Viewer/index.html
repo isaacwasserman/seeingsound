@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Viewer</title>
+        <link rel="stylesheet" href="main.css" crossorigin="anonymous"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <div id="splash_modal">
+            <div id="modal_content">
+                <h1>SeeingSound</h1>
+                <p>This web application uses autoplay.</p>
+                <button id="autoplay_modal_yes" onclick="unmute_and_close_modal()">Continue</button>
+                <button id="autoplay_modal_no" onclick="close_modal()">Continue on Mute</button>
+            </div>
+        </div>
+        <div id="playlist_modal" class="closed">
+            <div id="playlist_modal_content">
+                <h1>Create a Playlist</h1>
+                <p>Go to <a href="https://www.spotlistr.com/search/textbox" target="_blank">spotlistr.com</a> and paste the songs below into the textbox to create a Spotify playlist with your selection.</p>
+                <textarea id="playlist_modal_textarea" readonly></textarea>
+                <br/><br/>
+                <button id="playlist_modal_copy_button">Copy</button>
+                <br/><br/>
+                <button id="close_playlist_modal_button">Close</button>
+            </div>
+        </div>
+        <div id="tips" class="open">
+            <div id="tips_content">
+                <h1>SeeingSound</h1>
+                <p>
+                    Each tile is a <b>visual representation</b> of a hit song.
+                    <b>Hover</b> over tiles to hear a sample of the song they represent.
+                    <b>Click</b> two tiles to select the space between them and
+                    <b>create a playlist</b> of songs which are <b>sonically similar</b> to both.
+                    <br/>
+                </p>
+
+                <a href="https://isaacwasserman.com">Learn more &#8594;</a>
+                <br/><br/>
+            </div>
+            <button id="open_tips_button">&#9432;</button>
+            <button id="close_tips_button">Close</button>
+        </div>
+        <button id="create_playlist_button">Create playlist <span id="create_playlist_button_subtext">with <span id="num_songs_selected">0</span> songs</span></button>
+        <div id="main_grid"></div>
+        <audio id="center_audio" autoplay muted></audio>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/@popperjs/core@2" crossorigin="anonymous"></script>
+        <script src="data.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>

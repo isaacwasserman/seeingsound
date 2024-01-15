@@ -1,0 +1,309 @@
+/* Add font with multiple weights and styles */
+@font-face {
+    font-family: 'Cheltenham';
+    font-style: normal;
+    font-weight: 200;
+    src: url(fonts/nyt-cheltenham-200-normal.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Cheltenham';
+    font-style: italic;
+    font-weight: 300;
+    src: url(fonts/nyt-cheltenham-300-italic.otf) format('otf');
+}
+
+@font-face {
+    font-family: 'Cheltenham';
+    font-style: normal;
+    font-weight: 400;
+    src: url(fonts/nyt-cheltenham-400-normal.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Cheltenham';
+    font-style: normal;
+    font-weight: 500;
+    src: url(fonts/nyt-cheltenham-500-normal.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Cheltenham';
+    font-style: italic;
+    font-weight: 700;
+    src: url(fonts/nyt-cheltenham-700-italic.ttf) format('ttf');
+}
+
+@font-face {
+    font-family: 'Cheltenham';
+    font-style: normal;
+    font-weight: 700;
+    src: url(fonts/nyt-cheltenham-700-normal.ttf) format('ttf');
+}
+
+@font-face {
+    font-family: 'Cheltenham';
+    font-style: normal;
+    font-weight: 800;
+    src: url(fonts/nyt-cheltenham-800-normal.ttf) format('ttf');
+}
+
+body {
+    margin: 0px;
+    overflow:auto;
+    background-color: black;
+}
+
+#main_grid {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+
+.main_grid_row {
+    /* display: inline-block; */
+
+    /* border: 5px solid red; */
+    white-space: nowrap;
+}
+
+.grid {
+    display: inline-block;
+    /* border: 5px solid blue; */
+}
+
+.row {
+    white-space: nowrap;
+}
+
+.tile {
+    width: 16px;
+    height: 16px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* display: inline-block; */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    transition: 0.2s;
+    /* transform-style: preserve-3d;
+    transform: perspective(1000px); */
+    position: relative;
+    box-sizing: border-box;
+    display: none;
+}
+
+.tile:hover {
+    transform: scale(1.2);
+    border: 8px solid white;
+}
+
+.tile:active {
+    transform: scale(1.0);
+    border: 8px solid white;
+}
+
+#splash_modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+#modal_content {
+    display: block;
+    margin: 0 auto;
+    width: 30vw;
+    min-width: 300px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: "Cheltenham", Arial, Helvetica, sans-serif;
+    padding: 50px;
+    margin-top: 20vh;
+}
+
+#modal_content h1 {
+    margin: 0px;
+}
+
+.center_tile {
+    z-index: 100;
+}
+
+#tooltip {
+    position: fixed;
+    z-index: 101;
+    display: none;
+}
+
+.selection_outline_top_left {
+    border-top: 8px solid white;
+    border-left: 8px solid white;
+}
+
+.selection_outline_top {
+    border-top: 8px solid white;
+}
+
+.selection_outline_top_right {
+    border-top: 8px solid white;
+    border-right: 8px solid white;
+}
+
+.selection_outline_right {
+    border-right: 8px solid white;
+}
+
+.selection_outline_bottom_right {
+    border-bottom: 8px solid white;
+    border-right: 8px solid white;
+}
+
+.selection_outline_bottom {
+    border-bottom: 8px solid white;
+}
+
+.selection_outline_bottom_left {
+    border-bottom: 8px solid white;
+    border-left: 8px solid white;
+}
+
+.selection_outline_left {
+    border-left: 8px solid white;
+}
+
+.in_selection {
+    border: 4px solid purple;
+}
+
+.within_x {
+    border: 4px solid red;
+}
+
+.within_y {
+    border: 4px solid blue;
+}
+
+#tips {
+    position: fixed;
+    z-index: 105;
+    display: block;
+    background-color: rgba(0, 0, 0, 1);
+    color: white;
+    padding: 10px;
+    font-family: "Cheltenham", Arial, Helvetica, sans-serif;
+    bottom: 10px;
+    left: 10px;
+    width: 300px;
+    max-width: calc(100% - 20px);
+}
+
+#tips.closed {
+    background-color: transparent;
+}
+
+#tips.closed #tips_content {
+    display: none;
+}
+
+#tips p {
+    font-weight: 100;
+    text-align: justify;
+    color: #ccc;
+}
+
+#tips p b {
+    /* font-style: italic; */
+    color: #fff;
+}
+
+#tips a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#tips a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+#open_tips_button {
+    height: 30px;
+    width: 30px;
+}
+
+#close_tips_button {
+    float: right;
+}
+
+#tips.open #open_tips_button {
+    display: none;
+}
+
+#tips.closed #close_tips_button {
+    display: none;
+}
+
+#create_playlist_button {
+    position: fixed;
+    z-index: 105;
+    display: block;
+    background-color: rgba(0, 0, 0, 1);
+    color: white;
+    padding: 10px;
+    font-family: "Cheltenham", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    bottom: 10px;
+    right: 10px;
+    /* width: 300px; */
+    max-width: calc(100% - 20px);
+    border: 4px solid white;
+}
+
+#create_playlist_button:hover {
+    background-color: rgba(255, 255, 255, 1);
+    color: black;
+}
+
+#playlist_modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+#playlist_modal.closed {
+    display: none;
+}
+
+#playlist_modal_content {
+    display: block;
+    margin: 0 auto;
+    width: 30vw;
+    min-width: 300px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: "Cheltenham", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 50px;
+    margin-top: 20vh;
+}
+
+#playlist_modal_content h1 {
+    margin: 0px;
+}
+
+#playlist_modal_content textarea {
+    width: 100%;
+    height: 300px;
+}

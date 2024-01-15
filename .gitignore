@@ -1,0 +1,5 @@
+.cache*
+tracks_backup.db
+Viewer/.cache
+
+
