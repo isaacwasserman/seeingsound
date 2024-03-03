@@ -418,18 +418,18 @@ function assignTileToPlayer(tile, position) {
     var players = document.getElementsByTagName("audio");
     var resumeTime = 0;
     for (var i = 0; i < players.length; i++) {
-        if (players[i].getAttribute("src") == `Viewer/track_clips/${track_id}.mp3`) {
+        if (players[i].getAttribute("src") == `Viewer/track_clips/${track_id}.ogg`) {
             resumeTime = players[i].currentTime;
         }
     }
 
     // Check if this player is playing the same track
-    if (player.getAttribute("src") == `Viewer/track_clips/${track_id}.mp3`) {
+    if (player.getAttribute("src") == `Viewer/track_clips/${track_id}.ogg`) {
         return;
     }
     else {
         player.pause();
-        player.setAttribute("src", `Viewer/track_clips/${track_id}.mp3`);
+        player.setAttribute("src", `Viewer/track_clips/${track_id}.ogg`);
         player.load();
         player.currentTime = resumeTime;
         player.play();
